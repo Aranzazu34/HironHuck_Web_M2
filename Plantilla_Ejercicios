@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class App {
+    public static void ejercicio1(){
+
+    }
+
+    public static void ejercicio2(){
+
+    }
+
+    public static void ejercicio3(){
+
+    }
+
+    public static void extra(){
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        //ejercicio1();
+        //ejercicio2();
+        //ejercicio3();
+        extra();
+
+    }
+}
