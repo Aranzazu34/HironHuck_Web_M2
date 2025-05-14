@@ -96,32 +96,63 @@ public class App {
      */
     public static void ejercicio3(Scanner tcl){  
         boolean salir=false;
-        byte opcion; //bucle do...while, no hace falta inicializar opcion
+        byte    opcion=-1; //bucle do...while, no hace falta inicializar opcion
+        String  otraPregunta;
+        boolean seguir=true;
 
         do{
-            System.out.println("Elige el sonido a escuchar:\n1- Cohete\n2- Agua\n3- moto\n4- pajaros\n0- salir");
-            opcion = tcl.nextByte();
+            
+                System.out.println("Elige el sonido a escuchar:\n1- Cohete\n2- Agua\n3- moto\n4- pajaros\n0- salir");
+                opcion = tcl.nextByte();
+                tcl.nextLine();          
+       
 
-            switch (opcion) {
-                case 1:
-                    System.out.println("Suena ziuuum!\n");
-                    break;
-                case 2:
-                    System.out.println("Suena como poic, ploc, plic, glu...!\n");
-                    break;
-                case 3:
-                    System.out.println("Suena brrrmmm!\n");
-                    break; 
-               case 4:
-                    System.out.println("Suena pío!\n");
-                    break; 
-               case 0:
-                    salir = true;
-                    break;                                                                           
-                default:
-                    System.out.println("Numero del 0 al 4\n");
-                    // no se pone para que prosiga break;
-            }
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Suena ziuuum!\n");
+                        break;
+                    case 2:
+                        System.out.println("Suena como poic, ploc, plic, glu...!\n");
+                        break;
+                    case 3:
+                        System.out.println("Suena brrrmmm!\n");
+                        break; 
+                    case 4:
+                            System.out.println("Suena pío!\n");
+                            break; 
+                    case 0:
+                            salir = true;
+                            seguir = false;
+                            break;                                                                           
+                    default:
+                        System.out.println("Numero del 0 al 4\n");
+                        // no se pone para que prosiga 
+                        seguir = false;
+                        break;
+                }
+            
+System.out.println(seguir);
+                while (seguir) {
+                    System.out.println("quieres escuchar otro sonido? (s/n)\n");
+                    otraPregunta = tcl.nextLine();                
+
+                    switch (otraPregunta) {
+                        case "n":
+                        case "N":
+                            salir = true;
+                            seguir = false;
+                            break; 
+                        case "s":
+                        case "S":
+                            seguir = false;
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+
+                seguir = true;
         }while (!salir);
 
     }
