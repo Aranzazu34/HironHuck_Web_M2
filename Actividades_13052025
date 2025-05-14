@@ -1,0 +1,107 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner teclado = new Scanner(System.in);        
+
+        //1- EJERCICIO CONDICIONALES JAVA
+        /*
+            Preguntas la edad, y según la respuesta, le contestas:
+
+            estás en primaria/ secundaria/ universidad/ trabajando
+
+            +EXTRA: que si pone menos de 6 o más 120, dar un mensaje de error        
+        */        
+
+        //scanner.hasNextInt() control previo del scanner si es entero con WHILE
+
+        System.out.println("Qué edad tienes?");
+        int edad = teclado.nextInt();
+
+        if(edad < 6 || edad > 120){
+            System.out.println("Error: Estas fuera de la edad normalizada!");
+        }else if(edad > 7 && edad < 13 ){
+            System.out.println("Estás en primaria");
+        }else if(edad > 12 && edad < 17 ){
+            System.out.println("Estás en secundaria");    
+        }else if(edad > 17 && edad < 30 ){
+            System.out.println("Estás en la universidad");              
+        }else{
+            System.out.println("Estás trabajando");
+        }
+
+        teclado.nextLine();
+
+        //2- BUCLE EN JAVA:  Contar del 20 al 10 en orden descendiente, y dar el cuadrado de cada número. i-- resta un número
+        int num1 = 20;
+        int num2 = 10;
+
+        for (int i = 20;i>9;i--){
+            double cuadrado = Math.pow(i, 2);
+            System.out.println("el cuadrado de i " + i + " es (i*i):" + cuadrado);
+        }
+
+        //3- MEDIA EDADES DE TUS PADRES
+        /*
+            Se pregunta al usuario el nombre y edad de su madre, y lo mismo de su padre.            
+
+            Al final, mostrar frase del tipo “Tu madre se llama Berta y tiene 54 años, y tu padre se llama Roberto y tiene 59 años, y la media 
+            de sus edades es 56.5”
+            
+            OJO, tener en cuenta los decimales!
+        */
+
+        System.out.println("Cómo se llama tú madre?");
+        String nombreMadre = teclado.nextLine();
+
+        System.out.println("Qué edad tiene tú madre?");
+        int edadMadre = teclado.nextInt(); 
+        teclado.nextLine();  
+
+        System.out.println("Cómo se llama tú padre?");
+        String nombrePadre = teclado.nextLine();        
+
+        System.out.println("Qué edad tiene tú padre?");
+        int edadPadre = teclado.nextInt(); 
+        teclado.nextLine();  
+
+        double mediaEdadPadres = (double) (edadMadre+edadPadre) / 2;
+        System.out.println("Tu madre se llama " + nombreMadre + " y tiene " + edadMadre + " años, y tu padre se llama " +
+                           nombrePadre + " y tiene " + edadPadre + " años, y la media de sus edades es " + mediaEdadPadres);
+
+        /*
+            Otro ejercicio relativo al contenido de hoy: 
+
+            Preguntas al turista de qué continente es (Africa, Asia, Europa, America, Oceanía)
+
+            En cada caso, le muestras una respuesta diferente, del tipo “Asia? Me encanta la comida asiática” 
+
+            EXTRA: como lo harias para hacer que no importe si el usuario escribe mayúsculas o minúsculas? Busca los métodos disponibles en java 
+                   para realizar esto        
+
+        */
+
+        System.out.println("De qué continente provienes? (Africa, Asia, Europa, America, Oceanía) )");
+        String continente = teclado.nextLine(); 
+        
+        continente = continente.toUpperCase();  //revisar de probar con el IgnoreCase y aplicar bucle!!!
+
+        System.out.println(continente);
+        
+        if ( continente.equals("AFRICA")){
+            System.out.println("Africa? Quisiera conocer Tanzania y Cabo Verde!");
+        }else if (continente.equals("ASIA")){
+            System.out.println("Asia? Me gusta la comia de India, China, Coreana, ...");
+        }else if (continente.equals("EUROPA")){
+            System.out.println("Europa? Soy de España y me encantan los países Nordicos.");  
+        }else if (continente.equals("AMERICA")){
+            System.out.println("America? De Norte o Sur?");
+        }else if (continente.equals("OCEANIA")){
+            System.out.println("Oceania? De siempre he querido visitar Australia.");                                       
+        }
+
+
+        teclado.close();
+
+    }
+}
