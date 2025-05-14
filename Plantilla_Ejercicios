@@ -2,27 +2,31 @@ import java.util.Scanner;
 
 public class App {
     public static void ejercicio1(){
-
+       int i = 0;
     }
 
     public static void ejercicio2(){
-
+       int i = 0;
     }
 
     public static void ejercicio3(){
-
+       int i = 0;
     }
 
     public static void extra(){
-
+       int i = 0;
     }
 
     public static void main(String[] args) throws Exception {
 
-        //ejercicio1();
-        //ejercicio2();
-        //ejercicio3();
-        extra();
+        Scanner teclado = new Scanner(System.in);
+        
+        //ejercicio1(teclado);
+        //ejercicio2(teclado);
+        ejercicio3(teclado);
+        //extra();
+
+        teclado.close();
 
     }
 }
