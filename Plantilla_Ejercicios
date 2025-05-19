@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
 public class App {
-    public static void ejercicio1(){
+    public static void ejercicio1(Scanner tcl){
        int i = 0;
     }
 
-    public static void ejercicio2(){
+    public static void ejercicio2(Scanner tcl){
        int i = 0;
     }
 
-    public static void ejercicio3(){
+    public static void ejercicio3(Scanner tcl){
        int i = 0;
     }
 
-    public static void extra(){
+    public static void extra(Scanner tcl){
        int i = 0;
     }
 
@@ -24,7 +24,7 @@ public class App {
         //ejercicio1(teclado);
         //ejercicio2(teclado);
         ejercicio3(teclado);
-        //extra();
+        //extra(teclado);
 
         teclado.close();
 
