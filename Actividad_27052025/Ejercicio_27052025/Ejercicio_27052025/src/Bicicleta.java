@@ -87,7 +87,7 @@ public class Bicicleta {
     }
 
     //tipo: corta/larga
-    public void cambiarMarchas(String tipo){
+    public void cambiarMarchas(int tipo){
         System.out.println("Cambiar a marcha " + tipo);
     }
     

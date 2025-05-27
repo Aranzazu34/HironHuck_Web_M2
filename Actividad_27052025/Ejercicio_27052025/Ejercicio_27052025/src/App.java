@@ -113,6 +113,36 @@ public class App {
             bicicleta.setPulgadas_ruedas(pulgadas);
             System.out.println("Las pulgadas han cambiado a " + bicicleta.getPulgadas_ruedas());
             System.out.println("========");
+
+            //usar un método de los propios de la bicicleta
+            System.out.println("Introduce una opción ( 1. Tocar claxon, 2. pedalear, 3. parar, 4. girar o 5. cambiar a marcha):");
+            int opcion = tcl.nextInt();
+            tcl.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    bicicleta.tocarClaxon();
+                    break;
+                case 2:
+                    bicicleta.pedalear();
+                    break;                    
+                case 3:
+                    bicicleta.parar();
+                    break; 
+                case 4:
+                    String giro = tcl.nextLine();
+                    bicicleta.girar(giro);;
+                    break; 
+                case 5:
+                    int tmarcha = tcl.nextInt();
+                    tcl.nextLine();
+                    bicicleta.cambiarMarchas(tmarcha);
+                    break;                                                  
+                default:
+                    break;
+            }
+            
+
         }
 
         tcl.close();
