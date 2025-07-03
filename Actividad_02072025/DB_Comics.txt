@@ -1,0 +1,181 @@
+-- Desde DBeaver
+
+CREATE DATABASE comics;
+
+USE comics;
+
+/*
+ * 1- Crea, manualmente, incluyendo la BD, una tabla de personajes de comic con los campos: id, nombre, especie y frase favorita. 
+ * Inserta, también manualmente,  al menos 5 personajes.
+ * Prueba a corregir manualmente alguno de los datos, y a borrarlo.
+ * No cedas a la tentación de hacerlo visualmente: escribirlo todo te ayudará a recordar mejor las palabras clave y la estructura. * 
+ */
+
+-- Esto me salió al grabar la tabla, que estaba creando con las opciones del IDE
+
+CREATE TABLE comics.personajes_comics (
+	id INT auto_increment NOT NULL,
+	nombre varchar(100) NOT NULL,
+	especie varchar(30) NULL,
+	frase varchar(150) NULL,
+	CONSTRAINT personajes_comics_pk PRIMARY KEY (id,nombre)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_spanish_ci
+COMMENT='campos: id, nombre, especie y frase favorita';
+
+
+-- inserciones manuales de registros en la tabla anterior, y exportando estos registros en INSERTS:
+
+INSERT INTO comics.personajes_comics (nombre,especie,frase) VALUES
+	 ('Monkey D. Luffy','Humano','Voy a ser el rey de los piratas'),
+	 ('Naruto','Humano','¡Nunca me retracto de mi palabra, ese es mi camino ninja, mi nindo!'),
+	 ('Trunk','Híbrido saiyajin y humano','Sé que tú eres mi padre, pero ahora eres mi maestro.'),
+	 ('Wolwerine','Mutante','Soy el mejor en lo que hago, pero lo que hago no es muy agradable'),
+	 ('Viuda Negra','Biónica','He vivido muchas vidas... pero he terminado de huir de mi pasado'),
+	 ('Nosferatus','Vampiro','Ven a mí'),
+     ('Naruto','Humano','Soy Naruto Uzumaki, del clan Uzumaki y de la Hoja!');
+
+
+
+INSERT INTO comics.personajes_comics (nombre,especie,frase) VALUES
+     ('Naruto','Humano','Soy Naruto Uzumaki, del clan Uzumaki y de la Hoja!');
+
+
+-- actualizo uno de los registros (personaje de Nosferatus, con el id 6)
+
+update comics.personajes_comics set frase = 'No soy yo. Es tu propia naturaleza.' where id = 6;
+
+-- eliminar el personaje duplicado en nombre y especie con id 7
+
+-- FUNCIONA DELETE FROM comics.personajes_comics where nombre = 'Naruto' and frase like '%Uzumaki%';
+
+-- FUNCIONA 
+   DELETE FROM comics.personajes_comics WHERE id = 8;
+
+
+
+-- 2- Crea visualmente:
+
+-- Una tabla de autores de cómic, que contenga id, nombre, apellido, fecha de nacimiento, alta de registro y modificación de registro. 
+-- Inserta al menos 5 autores, visualmente.
+
+CREATE TABLE comics.autores (
+	id INT auto_increment NOT NULL,
+	nombre varchar(20) NOT NULL,
+	apellido varchar(100) NULL,
+	fecha_nacimiento DATE NULL,
+	alta_registro TIMESTAMP NULL,
+	modificacion_registro TIMESTAMP NULL,
+	CONSTRAINT autores_pk PRIMARY KEY (id),
+	CONSTRAINT autores_unique UNIQUE KEY (nombre,apellido,fecha_nacimiento)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_spanish_ci
+COMMENT='campos: id, nombre, apellido, fecha de nacimiento, alta de registro y modificación de registro';
+
+
+-- Trigger para actualizar la fecha de modificación automáticamente, con los cambios del resto de campos ( sin contemplar el id?!)
+
+use comics;
+
+DELIMITER $$
+CREATE TRIGGER tr_update_datos
+AFTER UPDATE 
+ON commics.autores 
+FOR EACH row
+begin
+
+  if ( old.nombre != new.nombre or 
+     old.apellido != new.apellido or
+     old.fecha_nacimiento != new.fecha_nacimiento
+     ) then
+      NEW modificacion_registro := SYSTIMESTAMP;
+  end if;
+END $$
+DELIMITER ;
+
+
+-- inserciones desde la tabla
+
+INSERT INTO comics.autores (nombre,apellido,fecha_nacimiento,alta_registro,modificacion_registro) VALUES
+	 ('Masashi','Kishimoto','1974-11-08','2025-07-02 21:36:45',NULL),
+	 ('Eiichiro','Oda','1975-01-01','2025-07-02 21:37:50',NULL),
+	 ('Akira','Toriyama','1955-04-05','2025-07-02 21:38:00',NULL),
+	 ('Len','Wein','1948-06-12','2025-07-02 21:39:23',NULL),
+	 ('Stan','Lee','1922-12-28','2025-07-02 21:41:05',NULL),
+	 ('Don','Rico','1912-09-26','2025-07-02 21:42:28',NULL),
+	 ('Henrik','Galeen','1881-01-07','2025-07-02 21:44:02',NULL);
+
+
+
+
+
+-- Y otra tabla de países que contenga: id, nombre país, capital e índice de riqueza *. Inserta al menos 5 países
+
+-- OJO! Al pasar de tabla visual a código mySQL, los gestores como WB pueden dar error. Deberás intentar corregir el código antes de validarlo en tal caso. (ejemplo, cuidado con el VISIBLE)
+
+--DBeaver
+CREATE TABLE comics.paises (
+	id INT auto_increment NOT NULL,
+	pais varchar(100) NOT NULL,
+	capital varchar(100) NULL,
+	pib DOUBLE NULL,
+	CONSTRAINT paises_pk PRIMARY KEY (id,pais)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_spanish_ci
+COMMENT='campos: id, nombre país, capital e índice de riqueza';
+
+--Workbench
+CREATE TABLE `paises` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pais` varchar(100) NOT NULL,
+  `capital` varchar(100) DEFAULT NULL,
+  `pib` double DEFAULT NULL,
+  PRIMARY KEY (`id`,`pais`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci COMMENT='campos: id, nombre país, capital e índice de riqueza';
+
+
+-- cambio tipo campo pib a FLOAT
+
+ALTER TABLE `comics`.`paises` 
+CHANGE COLUMN `pib` `pib` FLOAT NULL DEFAULT NULL ;
+
+
+
+-- En la tabla de datos visuales (result grid), prueba a:
+
+
+-- modificar un valor
+
+UPDATE `comics`.`autores` SET `alta_registro` = '2025-07-02 21:41:28' WHERE (`id` = '6');
+
+
+-- borrar un registro entero
+
+DELETE FROM `comics`.`autores` WHERE (`id` = '8');
+
+-- cambiar un valor a NULL (realmente null, que se vea en negativo)
+
+UPDATE `comics`.`paises` SET `pib` = NULL WHERE (`id` = '5') and (`pais` = 'Australia');
+
+
+-- exportar los inserts como .sql, y reimportarlos a tu script actual (que no contenía los INSERTS)
+
+INSERT INTO `comics`.`paises` (`pais`, `capital`, `pib`) VALUES ('Japón', 'Tokyo', '4.23');
+
+INSERT INTO `comics`.`paises` (`pais`, `capital`, `pib`) VALUES ('EUA', 'Washington', '7.41');
+
+
+INSERT INTO `comics`.`paises` (`pais`, `capital`, `pib`) VALUES ('Ucrania', 'Kiev', '0.15');
+
+
+INSERT INTO `comics`.`paises` (`pais`, `capital`, `pib`) VALUES ('Australia', 'Canberra', '1.75');
+
+INSERT INTO `comics`.`paises` (`pais`, `capital`, `pib`) VALUES ('España', 'Madrid', '0.32');
+
+
