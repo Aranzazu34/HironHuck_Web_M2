@@ -1,0 +1,8 @@
+id_personaje,nombre,especie,frase,id_autor
+1,"Monkey D. Luffy",Humano,"Voy a ser el rey de los piratas",1
+2,Naruto,Humano,"¡Nunca me retracto de mi palabra, ese es mi camino ninja, mi nindo!",2
+3,Trunk,"Híbrido saiyajin y humano","Sé que tú eres mi padre, pero ahora eres mi maestro.",NULL
+4,Wolwerine,Mutante,"Soy el mejor en lo que hago, pero lo que hago no es muy agradable",5
+5,"Viuda Negra",Biónica,"He vivido muchas vidas... pero he terminado de huir de mi pasado",NULL
+6,Nosferatus,Vampiro,"No soy yo. Es tu propia naturaleza.",7
+7,Akira,Androide,"El poder viene en respuesta a una necesidad, no a un deseo. Tienes que crear esa necesidad.",NULL
