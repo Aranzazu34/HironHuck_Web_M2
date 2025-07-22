@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "../Actividad_17072025/videojuegos/videojuegos"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
