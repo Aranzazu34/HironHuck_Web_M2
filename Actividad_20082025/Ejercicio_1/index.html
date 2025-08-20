@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Fetch Rick and Morty</title>
+  </head>
+
+  <body>
+    <h1>API de Rick & Morty</h1>
+
+    <br />
+    <!-- input para introducir valor id pokemon -->
+    <label for="numeropersonaje"
+      >Introduce el número del personaje que quieres ver</label
+    >
+    <input type="text" id="numeropersonaje" />
+    <button id="enviarnumero">Ver!</button>
+
+    <br /><br />
+    <button onclick="verTodos()">Ver todos los personajes FETCH/THEN</button>
+    <button onclick="verTodos1()">
+      Ver 4 personajes PRIMEROS FOR EACH/LIST
+    </button>
+    <button onclick="verTodos2()">
+      Ver 4 personajes a partir del personaje 10 FOR EACH/LIST
+    </button>
+    <div margin="auto" style="text-align: center" id="contenedor"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
