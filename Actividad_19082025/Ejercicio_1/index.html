@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>pokeapi25</title>
+  </head>
+
+  <body>
+    <h1>API de Rick & Morty</h1>
+
+    <br />
+    <!-- input para introducir valor id pokemon -->
+    <label for="numeropersonaje"
+      >Introduce el número del personaje que quieres ver</label
+    >
+    <input type="number" id="numeropersonaje" />
+    <button id="enviarnumero">enviar!</button>
+
+    <br /><br />
+
+    <!-- aqui se ubicará el nombre del pokemon -->
+    <p id="nombrepersonaje"></p>
+
+    <!-- aqui se ubicará la imagen -->
+    <img id="imagenpersonaje" src="" />
+
+    <br />
+
+    <div margin="auto" style="text-align: center" id="resultado">
+      aqui está el innerHTML
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
