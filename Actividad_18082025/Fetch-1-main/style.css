@@ -1,0 +1,10 @@
+#nombrepokemon{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(63, 8, 119);
+    font-size: xxx-large;
+    font-weight: bold;
+}
+
+#imagenpokemon{
+    width: 300px;
+}
