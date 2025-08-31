@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Modelos Toyota</title>
+  </head>
+  <body>
+    <h1>Modelos Toyota</h1>
+
+    <div class="buscador">
+      <input type="number" id="inputId" placeholder="Introduce ID de coche" />
+      <button id="buscarBtn">Buscar un modelo</button>
+      <button id="mostrarTodosBtn">Mostrar todos los Modelos</button>
+      <button id="limpiarBtn">Limpiar</button>
+    </div>
+
+    <!-- Contenedor tarjeta individual -->
+    <div id="tarjeta-individual" class="oculto">
+      <!-- Solo oculto aquí -->
+      <div class="card">
+        <!-- Aquí es donde agregas la clase card -->
+        <img src="" id="imagen" />
+        <div class="textos">
+          <h2 id="nombre">Nombre</h2>
+          <p id="color">Color</p>
+          <p id="plazas">Plazas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor para múltiples tarjetas -->
+    <div id="contenedor" class="oculto"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

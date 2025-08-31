@@ -1,0 +1,7 @@
+com\toyota\coches\Controller\CocheController.class
+com\toyota\coches\Controller\PreflightController.class
+com\toyota\coches\Repository\CocheRepository.class
+com\toyota\coches\CochesApiApplication.class
+com\toyota\coches\Entity\Coche.class
+com\toyota\coches\config\CorsConfig.class
+com\toyota\coches\config\CorsConfig$1.class
